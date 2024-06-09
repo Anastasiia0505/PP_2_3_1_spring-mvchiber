@@ -9,14 +9,14 @@
 <table>
     <tr>
         <th>Name</th>
-        <th>Age</th>
-        <th>Salary</th>
+        <th>Color</th>
+        <th>Price</th>
     </tr>
     <tr>
     <tr th:each="car : ${cars}">
         <td th:utext="${car.getName()}"></td>
-        <td th:utext="${car.getAge()}"></td>
-        <td th:utext="${car.getSalary()}"></td>
+        <td th:utext="${car.getColor()}"></td>
+        <td th:utext="${car.getPrice()}"></td>
     </tr>
 </table>
 </body>
