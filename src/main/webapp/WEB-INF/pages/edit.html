@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit User</title>
 </head>
 <body>
-<form th:method="PUT" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
-    <label for="name" >Name</label>
-    <input type="text" th:field="*{name}" id = "name"/>
+<h1>Edit User</h1>
+
+<form th:action="@{'editUser?id=' + ${user.id}}" th:object="${user}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name"/>
     <br>
-    <label for="surname" >Surname</label>
-    <input type="text" th:field="*{surname}" id = "surname"/>
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname"/>
     <br>
-    <label for="salary" >Salary</label>
-    <input type="text" th:field="*{salary}" id = "salary"/>
+    <label for="salary">Salary</label>
+    <input type="text" th:field="*{salary}" id="salary"/>
     <br>
-    <input type="submit" value="Update">
+    <input type="submit" value="Update"/>
 </form>
+
 </body>
 </html>

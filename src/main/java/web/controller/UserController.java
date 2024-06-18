@@ -37,30 +37,31 @@ public class UserController {
 		return "addUser";
 	}
 
-	@PostMapping("/")
+	@PostMapping("/addUser")
 	public String addUser(@ModelAttribute("user") User user) {
 		userService.addUser(user);
 		return "redirect:/";
 	}
 
-	@GetMapping("/{id}/edit")
-	public String editUserForm(ModelMap model, @PathVariable("id") int id) {
+	@GetMapping("/editUser")
+	public String editUserForm(ModelMap model, @RequestParam("id") int id) {
 		model.addAttribute("user", userService.getUserId(id));
 		return "edit";
 	}
 
-	@PutMapping("/{id}")
+	@PostMapping("/editUser")
 	public String editUser(@ModelAttribute("user") User user,
-						   BindingResult bindingResult, @PathVariable("id") int id) {
+						   BindingResult bindingResult, @RequestParam("id") int id) {
 		if (bindingResult.hasErrors()) {
 			return "edit";
+
 		}
 		userService.updateUser(id, user);
 		return "redirect:/";
 	}
 
-	@DeleteMapping("/{id}")
-	public String deleteUser(@PathVariable("id") int id) {
+	@PostMapping("/deleteUser")
+	public String deleteUser(@RequestParam("id") int id) {
 		userService.deleteUser(id);
 		return "redirect:/";
 	}
